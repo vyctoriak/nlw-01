@@ -2,12 +2,12 @@ function populateUFs() {
   const ufSelect = document.querySelector("select[name=uf]")
 
   fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-  .then( res => res.json() )
-  .then( states => {
-    for( const state of states ) {
-      ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
-    }
-  } )
+    .then(res => res.json())
+    .then(states => {
+      for (const state of states) {
+        ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+      }
+    })
 }
 
 populateUFs()
@@ -27,15 +27,15 @@ function getCities(event) {
   citySelect.disabled = true
 
   fetch(url)
-  .then( res => res.json() )
-  .then( cities => {
-    
-    for( const city of cities ) {
-      citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
-    }
+    .then(res => res.json())
+    .then(cities => {
 
-    citySelect.disabled = false
-  } )
+      for (const city of cities) {
+        citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
+      }
+
+      citySelect.disabled = false
+    })
 
 }
 
@@ -43,22 +43,54 @@ document
   .querySelector("select[name=uf]")
   .addEventListener("change", getCities)
 
-  // Itens de coleta
+// Itens de coleta
 
-  // Pegar todos os li's
-  const itemsToCollet = document.querySelectorAll(".items-grid li")
+// Pegar todos os li's
+const itemsToCollet = document.querySelectorAll(".items-grid li")
 
-  for(const item of itemsToCollet) {
-    item.addEventListener("click", handleSelectedItem)
+for (const item of itemsToCollet) {
+  item.addEventListener("click", handleSelectedItem)
+}
+
+const collectedItems = document.querySelector("input[name=items")
+
+let selectedItems = []
+
+function handleSelectedItem(event) {
+  const itemLi = event.target
+
+  // adicionar ou remover class com javascript
+  itemLi.classList.toggle("selected")
+
+  const itemId = itemLi.dataset.id
+
+
+
+  // verificar se existem selecionados
+  // se sim, pegar os selecionados
+  const alreadySelected = selectedItems.findIndex(item => {
+    const itemFound = item == itemId // será true ou false
+    return itemFound
+  })
+
+  // se já estiver selecionado, remover a seleção
+
+  if (alreadySelected >= 0) {
+    // tirar da seleção
+    const filteredItems = selectedItems.filter(item => {
+      const itemIsDifferent = item != itemId
+      return itemIsDifferent
+    })
+
+    selectedItems = filteredItems
+  } else {
+    // se não estiver, adicionar a seleção
+    selectedItems.push(itemId)
   }
 
-  function handleSelectedItem(event) {
-    const itemLi = event.target
+  // atualizar o campo escondido com os itens selecionados
+  collectedItems.value = selectedItems
 
-    // adicionar ou remover class com javascript
-    itemLi.classList.toggle("selected")
 
-    const itemId = event.target.dataset.id
-    
-    
-  }
+
+}
