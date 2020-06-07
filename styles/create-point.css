@@ -114,6 +114,8 @@ form button:hover {
 }
 
 .items-grid li {
+  transition: background-color 1s;
+  transition: border 1s;
   background-color: #f5f5f5;
   list-style: none;
 
@@ -130,4 +132,23 @@ form button:hover {
   justify-content: space-between;
   text-align: center;
   cursor: pointer;
+}
+
+.items-grid li span {
+  margin-top: 12px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: var(--title-color);
+}
+
+.items-grid li.selected {
+  transition: all 1s;
+  background-color: #e1faec;
+  border: 2px solid #34cd79;
+}
+
+.items-grid li img,
+.items-grid li span {
+  pointer-events: none;
 }
