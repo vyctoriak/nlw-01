@@ -1,0 +1,25 @@
+{
+  "name": "nlw",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vyctoriak/nlw-01.git"
+  },
+  "author": "Vyctoria Karina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vyctoriak/nlw-01/issues"
+  },
+  "homepage": "https://github.com/vyctoriak/nlw-01#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
