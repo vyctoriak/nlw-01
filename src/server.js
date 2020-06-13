@@ -16,11 +16,15 @@ nunjuncks.configure('src/views', {
 // req: Requisição
 // res: Resposta
 server.get('/', (req, res) => {
-  res.render('index.html');
+  return res.render('index.html', { title: "Um título" });
 });
 
 server.get('/create-point', (req, res) => {
-  res.render('create-point.html');
+  return res.render('create-point.html');
+});
+
+server.get('/search', (req, res) => {
+  return res.render('search-results.html');
 });
 
 // ligar o servidor
