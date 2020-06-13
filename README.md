@@ -23,7 +23,7 @@ npm start
 
 ## Built With
 
-* [HTML, CSS, JavaScript, Nunjuncks]
+* [HTML, CSS, JavaScript, Nunjuncks, SQLite]
 
 ## Authors
 
