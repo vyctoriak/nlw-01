@@ -1,5 +1,4 @@
-![/Capa.png]
-<img src=”Capa.png”>
+<img src=”./capa.png”>
 
 
 # ECOLETA
