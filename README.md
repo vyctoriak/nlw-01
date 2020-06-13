@@ -1,6 +1,4 @@
-<!-- <img src=”./capa.png”> -->
-
-![](./capa.png)
+<img src=”./banner.png”>
 
 # ECOLETA
 
