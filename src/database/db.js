@@ -7,7 +7,7 @@ const db = new sqlite3.Database("./src/database/database.db");
 module.exports = db;
 
 // Utilizar objeto de banco de dados para nossas operações
-// db.serialize(() => {
+db.serialize(() => {
   // Criar uma tabela
 //   db.run(`
 //       CREATE TABLE IF NOT EXISTS places (
@@ -55,23 +55,23 @@ module.exports = db;
 
 //   db.run(query, values, afterInsertData);
 
-  // Consultar dados da tabela
-  // db.all(`SELECT * FROM places`, function (err, rows) {
-  //   if (err) {
-  //     return console.log(err)
-  //   }
+//   // Consultar dados da tabela
+//   db.all(`SELECT * FROM places`, function (err, rows) {
+//     if (err) {
+//       return console.log(err)
+//     }
 
-  //   console.log("Aqui estão seus registros: ");
-  //   console.log(rows);
-  // });
+//     console.log("Aqui estão seus registros: ");
+//     console.log(rows);
+//   });
 
 
   // Deletar dados da tabela
-  // db.run(`DELETE FROM places WHERE id = ?`, [1], function (err) {
+  // db.run(`DELETE FROM places WHERE id = ?`, [6], function (err) {
   //   if (err) {
   //     return console.log(err)
   //   };
 
   //   console.log("Registro deletado com sucesso!");
   // })
-// });
+});
